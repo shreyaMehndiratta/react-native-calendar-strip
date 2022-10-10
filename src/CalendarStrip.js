@@ -173,12 +173,12 @@ class CalendarStrip extends Component {
 
       startingDate = { startingDate: this.setLocale(_startingDate)};
       selectedDate = { selectedDate: this.setLocale(this.props.selectedDate)};
-      days = this.createDays(startingDate.startingDate, selectedDate.selectedDate);
+//       days = this.createDays(startingDate.startingDate, selectedDate.selectedDate);
       updateState = true;
     }
 
     if (updateState) {
-      this.setState({...startingDate, ...selectedDate, ...days });
+//       this.setState({...startingDate, ...selectedDate, ...days });
     }
   }
 
@@ -298,15 +298,15 @@ class CalendarStrip extends Component {
   //Handling press on date/selecting date
   onDateSelected = selectedDate => {
     let newState;
-    if (this.props.scrollable) {
-      newState = { selectedDate };
-    }
-    else {
+//     if (this.props.scrollable) {
+//       newState = { selectedDate };
+//     }
+//     else {
       newState = {
         selectedDate,
         ...this.createDays(this.state.startingDate, selectedDate),
       };
-    }
+//     }
     this.setState(() => newState);
     const _selectedDate = selectedDate && selectedDate.clone();
     this.props.onDateSelected && this.props.onDateSelected(_selectedDate);
